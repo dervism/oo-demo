@@ -1,5 +1,7 @@
 package no.dervis;
 
+import no.dervis.parkingshus.Bil;
+import no.dervis.parkingshus.Parkeringshus;
 import no.dervis.sykehus.register.SykehusRegister;
 
 /**
@@ -17,5 +19,15 @@ public class App
         System.out.println(register.getSykehusNavn());
         System.out.println("Byggeår: " + register.BYGGE_AR);
 
+
+        Parkeringshus parkeringshus = new Parkeringshus(10);
+
+        parkeringshus.leggTilKjoretoy(new Bil());
+        parkeringshus.leggTilKjoretoy(new Bil());
+        parkeringshus.leggTilKjoretoy(new Bil());
+
+        System.out.println(
+                parkeringshus.getParkeringsPlasser()
+        );
     }
 }

@@ -7,3 +7,4 @@ Java 22 starter project.
 - - Mutering -> Å kunne endre innholdet i en variabel
 - TDD - Test Driven Development
 - DDD - Domain Driven-Design
+
