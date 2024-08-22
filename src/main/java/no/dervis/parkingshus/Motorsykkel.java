@@ -1,5 +1,16 @@
 package no.dervis.parkingshus;
 
-public record Motorsykkel() implements Kjoretoy {
+import java.util.Objects;
 
+public record Motorsykkel(String type) implements Kjoretoy {
+
+    @Override
+    public String toString() {
+        return "Motorsykkel{}";
+    }
+
+    @Override
+    public String skiltnr() {
+        return "";
+    }
 }

@@ -10,9 +10,9 @@ class ParkeringshusTest {
     void leggTilKjoretoy() {
         Parkeringshus parkeringshus = new Parkeringshus(3);
 
-        parkeringshus.leggTilKjoretoy(new Bil());
-        parkeringshus.leggTilKjoretoy(new Bil());
-        parkeringshus.leggTilKjoretoy(new Bil());
+        parkeringshus.leggTilKjoretoy(new Bil(""));
+        parkeringshus.leggTilKjoretoy(new Bil(""));
+        parkeringshus.leggTilKjoretoy(new Bil(""));
 
         assertEquals(3, parkeringshus.getParkeringsPlasser().size());
     }
@@ -21,12 +21,12 @@ class ParkeringshusTest {
     void testHarIkkeMerPlass() {
         Parkeringshus parkeringshus = new Parkeringshus(3);
 
-        parkeringshus.leggTilKjoretoy(new Bil());
-        parkeringshus.leggTilKjoretoy(new Bil());
-        parkeringshus.leggTilKjoretoy(new Bil());
+        parkeringshus.leggTilKjoretoy(new Bil(""));
+        parkeringshus.leggTilKjoretoy(new Bil(""));
+        parkeringshus.leggTilKjoretoy(new Bil(""));
 
         assertThrows(RuntimeException.class, () -> {
-            parkeringshus.leggTilKjoretoy(new Bil());
+            parkeringshus.leggTilKjoretoy(new Bil(""));
         });
     }
 
