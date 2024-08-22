@@ -1,6 +1,9 @@
 package no.dervis.hotel;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Hotel {
 
@@ -21,8 +24,10 @@ public class Hotel {
     }
 
     public boolean sjekkInn(Gjest gjest, int romNummer) {
-        return Optional.ofNullable(rom.get(romNummer))
-                .map(room -> room.gjester().add(gjest))
-                .orElse(false);
+        if (rom.containsKey(romNummer)) {
+            rom.get(romNummer).gjester().add(gjest);
+            return true;
+        }
+        return false;
     }
 }
