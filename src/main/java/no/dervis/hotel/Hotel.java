@@ -30,4 +30,13 @@ public class Hotel {
         }
         return false;
     }
+
+    public boolean sjekkUt(int romNummer) {
+        if (rom.containsKey(romNummer)) {
+            // vi lager en ny tom liste i dette rommet (for å tømme gjestelisten)
+            rom.put(romNummer, new Rom(new ArrayList<>()));
+            return true;
+        }
+        return false;
+    }
 }
