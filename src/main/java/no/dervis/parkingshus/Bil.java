@@ -1,29 +1,25 @@
 package no.dervis.parkingshus;
 
-public class Bil implements Kjoretoy {
+// vi skriver "non-sealed" fordi denne klassen ikke er
+// er abstract. Dvs vi tillater at denne klassen kan
+// utvides av andre klasser gjennom arv i Java
+// (feks "class ElektriskBil extends Bil {}")
+public non-sealed class Bil implements Kjoretoy {
 
-    private String skiltnr;
+    private KjoretoyInfo kjoretoyInfo;
 
-    private Type type;
-
-    public Bil(String skiltnr) {
-        this.skiltnr = skiltnr;
-        this.type = Type.LitenBil;
+    public Bil(KjoretoyInfo kjoretoyInfo) {
+        this.kjoretoyInfo = kjoretoyInfo;
     }
 
     @Override
     public String toString() {
         return "Bil{" +
-                "skiltnr='" + skiltnr + '\'' +
+                "kjoretoyInfo=" + kjoretoyInfo +
                 '}';
     }
 
-    public Type getType() {
-        return type;
-    }
-
-    @Override
-    public String skiltnr() {
-        return skiltnr;
+    public KjoretoyInfo getKjoretoyInfo() {
+        return kjoretoyInfo;
     }
 }

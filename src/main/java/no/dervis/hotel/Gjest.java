@@ -1,5 +1,6 @@
 package no.dervis.hotel;
 
-public record Gjest(String navn) {
+// Value Objects
+public record Gjest(String navn, int alder) {
 
 }

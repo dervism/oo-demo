@@ -10,7 +10,7 @@ class HotelTest {
     void testSjekkInnValidRoomNumber() {
         Hotel hotel = new Hotel();
         hotel.lagHotelRom();
-        Gjest gjest = new Gjest("test gjest");
+        Gjest gjest = new Gjest("Test Gjesteson", 18);
         assertTrue(hotel.sjekkInn(gjest, 1));
         assertTrue(hotel.getRom().get(1).gjester().contains(gjest));
     }
@@ -19,7 +19,7 @@ class HotelTest {
     void testSjekkInnInvalidRoomNumber() {
         Hotel hotel = new Hotel();
         hotel.lagHotelRom();
-        Gjest gjest = new Gjest("test gjest");
+        Gjest gjest = new Gjest("Test Gjesteson", 18);
         assertFalse(hotel.sjekkInn(gjest, 4));
     }
 }

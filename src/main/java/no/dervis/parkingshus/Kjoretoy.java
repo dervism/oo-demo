@@ -1,16 +1,16 @@
 package no.dervis.parkingshus;
 
-public interface Kjoretoy {
-    
+public sealed interface Kjoretoy permits Bil, Buss, Motorsykkel, Traktor, Sykkel {
 
     enum Type {
-        BIL,
+        PersonBil,
         LitenBil,
         StorBil,
         CAMPINGVOGN,
         BUS,
         MOTORSYKKEL,
+        MOPED,
+        MINIBUSS
     }
 
-    String skiltnr();
 }
