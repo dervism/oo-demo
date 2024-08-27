@@ -30,9 +30,7 @@ public class HttpApi {
             ObjectMapper objectMapper = new ObjectMapper();
 
             // Convert JSON string to List of User objects
-
             return objectMapper.readValue(responseBody, new TypeReference<>() {});
-
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
