@@ -12,7 +12,7 @@ import java.util.List;
 public class HttpApi {
 
 
-    public <T> List<T> get(Class<T> clazz, String url) {
+    public <T> List<T> getList(Class<T> clazz, String url) {
         try(HttpClient client = HttpClient.newHttpClient()) {
 
             // Create HttpRequest instance
