@@ -10,6 +10,13 @@ public class Kortstokk {
         this.kortstokk = kortstokk;
     }
 
+    public Kort trekkKort() {
+        if (kortstokk.isEmpty())
+            throw new RuntimeException("Kortstokken er tom.");
+
+        return kortstokk.removeFirst();
+    }
+
     public List<Kort> getKortstokk() {
         return kortstokk;
     }

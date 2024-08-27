@@ -9,7 +9,7 @@ import java.util.List;
 public class App {
     void main() {
 
-        List<Kort> kortliste = new HttpApi().getList(Kort.class, "https://sveltethefox.ekstern.dev.nav.no/shuffle");
+        List<Kort> kortliste = HttpApi.getList(Kort.class, "https://sveltethefox.ekstern.dev.nav.no/shuffle");
 
         System.out.println(kortliste.size());
         System.out.println(kortliste);
