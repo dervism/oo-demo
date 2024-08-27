@@ -16,6 +16,11 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+/**
+ * An extended version of HttpApi with methods to handle date and time properly.
+ * This class does not depend on JSR-310 extension to Jackson-DataBind.
+ */
+
 public class ExtendedHttpApi {
 
     private static final String ISO_DATETIME_REGEX = "\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}";
@@ -41,7 +46,7 @@ public class ExtendedHttpApi {
         this.client = client;
     }
 
-    public <T> List<T> getJSONArrayAsList(Class<T> clazz, String url) {
+    public <T> List<T> getList(Class<T> clazz, String url) {
         try(client) {
 
             // Create HttpRequest instance

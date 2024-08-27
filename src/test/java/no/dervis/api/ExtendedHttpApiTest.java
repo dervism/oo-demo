@@ -16,7 +16,7 @@ import static org.mockito.ArgumentMatchers.any;
 public class ExtendedHttpApiTest {
 
     @Test
-    public void testGetJSONArrayAsList() throws IOException, InterruptedException {
+    public void testGetList() throws IOException, InterruptedException {
         String url = "http://example.com";
         Class<String> clazz = String.class;
 
@@ -29,7 +29,7 @@ public class ExtendedHttpApiTest {
         Mockito.when(clientMock.send(any(), any())).thenReturn(responseMock);
         Mockito.when(responseMock.body()).thenReturn("[\"value1\", \"value2\", \"value3\"]");
 
-        List<String> list = api.getJSONArrayAsList(clazz, url);
+        List<String> list = api.getList(clazz, url);
 
         Assertions.assertNotNull(list);
         Assertions.assertSame(3, list.size());
@@ -39,7 +39,7 @@ public class ExtendedHttpApiTest {
     }
 
     @Test
-    public void testGetJSONArrayAsListWhenResponseIsEmpty() throws IOException, InterruptedException {
+    public void testGetListWhenResponseIsEmpty() throws IOException, InterruptedException {
         String url = "http://example2.com";
         Class<String> clazz = String.class;
 
@@ -52,7 +52,7 @@ public class ExtendedHttpApiTest {
         Mockito.when(clientMock.send(any(), any())).thenReturn(responseMock);
         Mockito.when(responseMock.body()).thenReturn("[]");
 
-        List<String> list = api.getJSONArrayAsList(clazz, url);
+        List<String> list = api.getList(clazz, url);
 
         Assertions.assertNotNull(list);
         Assertions.assertTrue(list.isEmpty());
@@ -72,7 +72,7 @@ public class ExtendedHttpApiTest {
         Mockito.when(clientMock.send(any(), any())).thenReturn(responseMock);
         Mockito.when(responseMock.body()).thenReturn("not a json response");
 
-        Assertions.assertThrows(RuntimeException.class, () -> api.getJSONArrayAsList(clazz, url));
+        Assertions.assertThrows(RuntimeException.class, () -> api.getList(clazz, url));
     }
 
     @Test
@@ -89,11 +89,11 @@ public class ExtendedHttpApiTest {
         Mockito.when(clientMock.send(any(), any())).thenReturn(responseMock);
         Mockito.when(responseMock.body()).thenReturn("[\"value1\", \"value2\",}");
 
-        Assertions.assertThrows(RuntimeException.class, () -> api.getJSONArrayAsList(clazz, url));
+        Assertions.assertThrows(RuntimeException.class, () -> api.getList(clazz, url));
     }
 
     @Test
-    public void testGetJSONArrayAsListWhenResponseContainsInteger() throws IOException, InterruptedException {
+    public void testGetListWhenResponseContainsInteger() throws IOException, InterruptedException {
         String url = "http://example5.com";
         Class<Integer> clazz = Integer.class;
 
@@ -106,7 +106,7 @@ public class ExtendedHttpApiTest {
         Mockito.when(clientMock.send(any(), any())).thenReturn(responseMock);
         Mockito.when(responseMock.body()).thenReturn("[1, 2, 3]");
 
-        List<Integer> list = api.getJSONArrayAsList(clazz, url);
+        List<Integer> list = api.getList(clazz, url);
 
         Assertions.assertNotNull(list);
         Assertions.assertSame(3, list.size());
@@ -164,7 +164,7 @@ public class ExtendedHttpApiTest {
     }
 
     @Test
-    public void testGetJSONArrayAsListWithDateResponse() throws IOException, InterruptedException {
+    public void testGetListWithDateResponse() throws IOException, InterruptedException {
         String url = "http://example6.com";
 
         HttpClient clientMock = Mockito.mock(HttpClient.class);
@@ -176,7 +176,7 @@ public class ExtendedHttpApiTest {
         Mockito.when(clientMock.send(any(), any())).thenReturn(responseMock);
         Mockito.when(responseMock.body()).thenReturn("[\"2024-05-01\", \"2024-02-14\",\"2024-07-05\"]");
 
-        List<LocalDate> list = api.getJSONArrayAsList(LocalDate.class, url);
+        List<LocalDate> list = api.getList(LocalDate.class, url);
 
         Assertions.assertNotNull(list);
         Assertions.assertEquals(3, list.size());
@@ -188,7 +188,7 @@ public class ExtendedHttpApiTest {
     }
 
     @Test
-    public void testGetJSONArrayAsListWithDateTimeResponse() throws IOException, InterruptedException {
+    public void testGetListWithDateTimeResponse() throws IOException, InterruptedException {
         String url = "http://example6.com";
 
         HttpClient clientMock = Mockito.mock(HttpClient.class);
@@ -200,7 +200,7 @@ public class ExtendedHttpApiTest {
         Mockito.when(clientMock.send(any(), any())).thenReturn(responseMock);
         Mockito.when(responseMock.body()).thenReturn("[\"2024-05-01T12:07:02\", \"2024-02-14T14:40:00\",\"2024-07-05T19:30:00\"]");
 
-        List<LocalDateTime> list = api.getJSONArrayAsList(LocalDateTime.class, url);
+        List<LocalDateTime> list = api.getList(LocalDateTime.class, url);
 
         Assertions.assertNotNull(list);
         Assertions.assertEquals(3, list.size());
@@ -250,7 +250,7 @@ public class ExtendedHttpApiTest {
         Mockito.when(clientMock.send(any(), any())).thenReturn(responseMock);
         Mockito.when(responseMock.body()).thenReturn("[{\"datetime\":\"2024-05-01T12:07:02\", \"name\":\"Meeting1\"}, {\"datetime\":\"2024-02-14T14:40:00\", \"name\":\"Meeting2\"},{\"datetime\":\"2024-07-05T19:30:00\", \"name\":\"Meeting3\"}]");
 
-        List<Meeting> list = api.getJSONArrayAsList(Meeting.class, url);
+        List<Meeting> list = api.getList(Meeting.class, url);
 
         Assertions.assertNotNull(list);
         Assertions.assertEquals(3, list.size());
