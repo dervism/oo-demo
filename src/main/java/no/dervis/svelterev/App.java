@@ -13,5 +13,7 @@ public class App {
         System.out.println(kortstokk.size());
         System.out.println(kortstokk);
 
+        // new SvelteRev(kortstokk).spill();
+
     }
 }
