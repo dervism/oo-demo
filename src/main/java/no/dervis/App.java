@@ -83,6 +83,8 @@ public class App
         List<Kjoretoy> kjoretoyListe = new ArrayList<>(
                 List.of(bil1, bil2, bil4, bil5, motorsykkel1, motorsykkel2));
 
+
+
         for (Kjoretoy kjoretoy : kjoretoyListe) {
             if (kjoretoy instanceof Bil bil && bil.getKjoretoyInfo().type() == LitenBil) {
                 System.out.println(bil.getKjoretoyInfo().skiltnr());

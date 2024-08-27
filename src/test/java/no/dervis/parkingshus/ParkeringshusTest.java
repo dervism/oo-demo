@@ -10,6 +10,8 @@ class ParkeringshusTest {
     void leggTilKjoretoy() {
         Parkeringshus parkeringshus = new Parkeringshus(3);
 
+        System.out.println(KjoretoyFaker.lagFakeBil());
+
         parkeringshus.leggTilKjoretoy(KjoretoyFaker.lagFakeBil());
         parkeringshus.leggTilKjoretoy(KjoretoyFaker.lagFakeBil());
         parkeringshus.leggTilKjoretoy(KjoretoyFaker.lagFakeBil());
