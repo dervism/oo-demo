@@ -11,7 +11,6 @@ import java.util.List;
 
 public class HttpApi {
 
-
     public <T> List<T> getList(Class<T> clazz, String url) {
         try(HttpClient client = HttpClient.newHttpClient()) {
 
