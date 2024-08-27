@@ -1,6 +1,6 @@
 package no.dervis.svelterev;
 
-import no.dervis.svelterev.api.HttpApi;
+import no.dervis.api.HttpApi;
 import no.dervis.svelterev.kort.Kort;
 
 import java.util.List;

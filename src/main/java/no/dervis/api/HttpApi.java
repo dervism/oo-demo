@@ -1,4 +1,4 @@
-package no.dervis.svelterev.api;
+package no.dervis.api;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
